@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Last FM</string>
+    <string name="base_url">https://ws.audioscrobbler.com/2.0/</string>
+    <string name="api_key"><!--Add your own API key!--></string>
+    <string name="searching">Searching...</string>
+    <string name="no_search_results">No results! Please type a search phrase and click search!</string>
+    <string name="title_activity_artist_details">ArtistDetailsActivity</string>
+</resources>
