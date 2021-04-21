@@ -5,26 +5,29 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
 import dagger.hilt.android.AndroidEntryPoint
-import hu.organicsoft.coroulin.R
+import hu.organicsoft.coroulin.databinding.ActivityArtistDetailsBinding
 import hu.organicsoft.coroulin.ui.view_model.artist_details.ArtistDetailsViewModel
-import kotlinx.android.synthetic.main.activity_artist_details.*
 
 @AndroidEntryPoint
 class ArtistDetailsActivity : AppCompatActivity() {
 
     //region Properties
+    private lateinit var binding: ActivityArtistDetailsBinding
+
     private val viewModel: ArtistDetailsViewModel by viewModels()
     //endregion
 
     //region Activity
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_artist_details)
+
+        binding = ActivityArtistDetailsBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         viewModel.artist.observe(this) { artist ->
-            artistNameTextView.text = artist?.name
+            binding.artistNameTextView.text = artist?.name
             artist?.imageUrl?.let { imageUrl ->
-                artistImageView.load(imageUrl)
+                binding.artistImageView.load(imageUrl)
             }
         }
     }

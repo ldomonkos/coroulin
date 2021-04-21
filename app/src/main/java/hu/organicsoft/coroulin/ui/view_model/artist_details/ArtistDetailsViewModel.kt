@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import hu.organicsoft.coroulin.domain.model.Artist
+import hu.organicsoft.coroulin.ui.Constants
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,6 +18,6 @@ class ArtistDetailsViewModel @Inject constructor(
     val artist: LiveData<Artist> = _artist
 
     init {
-        _artist.value = savedStateHandle.get("artist")
+        _artist.value = savedStateHandle.get(Constants.EXTRA_ARTIST)
     }
 }
